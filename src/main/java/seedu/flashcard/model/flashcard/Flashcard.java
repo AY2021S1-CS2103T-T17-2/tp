@@ -18,11 +18,16 @@ public class Flashcard {
     private final Category category;
     private final Note note;
 
+<<<<<<< HEAD
     // State fields
     private final boolean isFavourite;
 
     /**
      * Identity and Data fields must be present and not null.
+=======
+    /**
+     * Every field must be present and not null.
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
      */
     public Flashcard(Question question, Answer answer, Category category, Note note) {
         requireAllNonNull(question, answer, category, note);
@@ -30,6 +35,7 @@ public class Flashcard {
         this.answer = answer;
         this.category = category;
         this.note = note;
+<<<<<<< HEAD
         this.isFavourite = false;
     }
 
@@ -44,6 +50,8 @@ public class Flashcard {
         this.category = category;
         this.note = note;
         this.isFavourite = isFavourite;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     public Question getQuestion() {
@@ -62,9 +70,12 @@ public class Flashcard {
         return note;
     }
 
+<<<<<<< HEAD
     public boolean isFavourite() {
         return isFavourite;
     }
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 
     /**
      * Returns true if the input is the correct answer.
@@ -105,8 +116,12 @@ public class Flashcard {
         return otherFlashcard.getQuestion().equals(getQuestion())
                 && otherFlashcard.getAnswer().equals(getAnswer())
                 && otherFlashcard.getCategory().equals(getCategory())
+<<<<<<< HEAD
                 && otherFlashcard.getNote().equals(getNote())
                 && (otherFlashcard.isFavourite() == isFavourite());
+=======
+                && otherFlashcard.getNote().equals(getNote());
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     @Override

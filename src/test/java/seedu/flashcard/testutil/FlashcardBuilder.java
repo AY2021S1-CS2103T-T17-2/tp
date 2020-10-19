@@ -15,13 +15,19 @@ public class FlashcardBuilder {
     public static final String DEFAULT_ANSWER = "Object oriented programming";
     public static final String DEFAULT_CATEGORY = "General";
     public static final String DEFAULT_NOTE = "";
+<<<<<<< HEAD
     public static final boolean DEFAULT_FAVOURITE_STATUS = false;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 
     private Question question;
     private Answer answer;
     private Category category;
     private Note note;
+<<<<<<< HEAD
     private boolean isFavourite;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 
     /**
      * Creates a {@code FlashcardBuilder} with the default details.
@@ -31,7 +37,10 @@ public class FlashcardBuilder {
         answer = new Answer(DEFAULT_ANSWER);
         category = new Category(DEFAULT_CATEGORY);
         note = new Note(DEFAULT_NOTE);
+<<<<<<< HEAD
         isFavourite = DEFAULT_FAVOURITE_STATUS;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     /**
@@ -42,7 +51,10 @@ public class FlashcardBuilder {
         answer = flashcardToCopy.getAnswer();
         category = flashcardToCopy.getCategory();
         note = flashcardToCopy.getNote();
+<<<<<<< HEAD
         isFavourite = flashcardToCopy.isFavourite();
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     /**
@@ -77,6 +89,7 @@ public class FlashcardBuilder {
         return this;
     }
 
+<<<<<<< HEAD
     /**
      * Sets the {@code isFavourite} status of the {@code Flashcard} that we are building.
      */
@@ -87,6 +100,10 @@ public class FlashcardBuilder {
 
     public Flashcard build() {
         return new Flashcard(question, answer, category, note, isFavourite);
+=======
+    public Flashcard build() {
+        return new Flashcard(question, answer, category, note);
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
 }

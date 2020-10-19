@@ -20,20 +20,30 @@ class JsonAdaptedFlashcard {
     private String answer;
     private String category;
     private String note;
+<<<<<<< HEAD
     private String isFavourite;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 
     /**
      * Constructs a {@code JsonAdaptedFlashcard} with the given flashcard details.
      */
     @JsonCreator
     public JsonAdaptedFlashcard(@JsonProperty("question") String question, @JsonProperty("answer") String answer,
+<<<<<<< HEAD
                                 @JsonProperty("category") String category, @JsonProperty("note") String note,
                                 @JsonProperty("favourite") String isFavourite) {
+=======
+                                @JsonProperty("category") String category, @JsonProperty("note") String note) {
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
         this.question = question;
         this.answer = answer;
         this.category = category;
         this.note = note;
+<<<<<<< HEAD
         this.isFavourite = isFavourite;
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     /**
@@ -44,7 +54,10 @@ class JsonAdaptedFlashcard {
         answer = source.getAnswer().toString();
         category = source.getCategory().toString();
         note = source.getNote().toString();
+<<<<<<< HEAD
         isFavourite = Boolean.toString(source.isFavourite());
+=======
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     /**
@@ -86,9 +99,13 @@ class JsonAdaptedFlashcard {
         }
         final Note modelNote = new Note(note);
 
+<<<<<<< HEAD
         final Boolean modelIsFavourite = Boolean.parseBoolean(isFavourite);
 
         return new Flashcard(modelQuestion, modelAnswer, modelCategory, modelNote, modelIsFavourite);
+=======
+        return new Flashcard(modelQuestion, modelAnswer, modelCategory, modelNote);
+>>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
 }
