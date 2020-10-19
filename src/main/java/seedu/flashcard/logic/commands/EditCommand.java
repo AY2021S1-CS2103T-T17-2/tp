@@ -93,12 +93,8 @@ public class EditCommand extends Command {
         Answer updatedAnswer = editFlashcardDescriptor.getAnswer().orElse(flashcardToEdit.getAnswer());
         Category updatedCategory = editFlashcardDescriptor.getCategory().orElse(flashcardToEdit.getCategory());
         Note updatedNote = editFlashcardDescriptor.getNote().orElse(flashcardToEdit.getNote());
-<<<<<<< HEAD
         boolean isFavourite = flashcardToEdit.isFavourite();
         return new Flashcard(updatedQuestion, updatedAnswer, updatedCategory, updatedNote, isFavourite);
-=======
-        return new Flashcard(updatedQuestion, updatedAnswer, updatedCategory, updatedNote);
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
     }
 
     @Override

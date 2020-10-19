@@ -12,19 +12,14 @@ import seedu.flashcard.logic.commands.Command;
 import seedu.flashcard.logic.commands.DeleteCommand;
 import seedu.flashcard.logic.commands.EditCommand;
 import seedu.flashcard.logic.commands.ExitCommand;
-<<<<<<< HEAD:src/main/java/seedu/flashcard/logic/parser/FlashcardDeckParser.java
 import seedu.flashcard.logic.commands.FavCommand;
-=======
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc:src/main/java/seedu/address/logic/parser/AddressBookParser.java
+
 import seedu.flashcard.logic.commands.FilterCommand;
 import seedu.flashcard.logic.commands.FindCommand;
 import seedu.flashcard.logic.commands.HelpCommand;
 import seedu.flashcard.logic.commands.ListCommand;
 import seedu.flashcard.logic.commands.ReviewCommand;
-<<<<<<< HEAD:src/main/java/seedu/flashcard/logic/parser/FlashcardDeckParser.java
 import seedu.flashcard.logic.commands.UnfavCommand;
-=======
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc:src/main/java/seedu/address/logic/parser/AddressBookParser.java
 import seedu.flashcard.logic.parser.exceptions.ParseException;
 
 /**
@@ -83,15 +78,12 @@ public class FlashcardDeckParser {
 
         case ReviewCommand.COMMAND_WORD:
             return new ReviewCommand();
-<<<<<<< HEAD:src/main/java/seedu/flashcard/logic/parser/FlashcardDeckParser.java
 
         case FavCommand.COMMAND_WORD:
             return new FavCommandParser().parse(arguments);
 
         case UnfavCommand.COMMAND_WORD:
             return new UnfavCommandParser().parse(arguments);
-=======
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc:src/main/java/seedu/address/logic/parser/AddressBookParser.java
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
