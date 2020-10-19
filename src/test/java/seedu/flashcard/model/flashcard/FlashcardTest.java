@@ -35,19 +35,10 @@ public class FlashcardTest {
         // different note -> returns true
         editedFlashcardOne = new FlashcardBuilder(FLASHCARD_1).withNote(VALID_NOTE_1).build();
         assertTrue(FLASHCARD_1.isSameQuestion(editedFlashcardOne));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
 
         // different isFavourite status -> returns true
         editedFlashcardOne = new FlashcardBuilder(FLASHCARD_1).withFavouriteStatus(true).build();
         assertTrue(FLASHCARD_1.isSameQuestion(editedFlashcardOne));
-<<<<<<< HEAD
-=======
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
-=======
->>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
     }
 
     @Test
@@ -83,18 +74,9 @@ public class FlashcardTest {
         // different note -> returns false
         editedFlashcardOne = new FlashcardBuilder(FLASHCARD_1).withNote(VALID_NOTE_2).build();
         assertFalse(FLASHCARD_1.equals(editedFlashcardOne));
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
 
         // different isFavourite status -> returns false
         editedFlashcardOne = new FlashcardBuilder(FLASHCARD_1).withFavouriteStatus(true).build();
         assertFalse(FLASHCARD_1.equals(editedFlashcardOne));
-<<<<<<< HEAD
-=======
->>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
-=======
->>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
     }
 }
