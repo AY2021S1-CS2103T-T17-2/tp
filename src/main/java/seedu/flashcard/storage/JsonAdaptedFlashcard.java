@@ -3,7 +3,6 @@ package seedu.flashcard.storage;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import seedu.flashcard.commons.exceptions.IllegalValueException;
 import seedu.flashcard.model.flashcard.Answer;
 import seedu.flashcard.model.flashcard.Category;
@@ -110,9 +109,6 @@ class JsonAdaptedFlashcard {
         if (tag == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Tag.class.getSimpleName()));
-        }
-        if (!Tag.isValidTagName(tag)) {
-            throw new IllegalValueException(Tag.MESSAGE_CONSTRAINTS);
         }
         final Tag modelTag = new Tag(tag);
 
