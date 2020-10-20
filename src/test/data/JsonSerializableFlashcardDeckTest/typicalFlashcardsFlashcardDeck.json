@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
     "note": "",
+    "rating": "2",
     "isFavourite": "false"
 =======
     "note": ""
@@ -28,6 +29,7 @@
 >>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 =======
     "note": "",
+    "rating": "",
     "isFavourite": "true"
 >>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
   }, {
@@ -43,6 +45,7 @@
 >>>>>>> 9017367472fa4f41b4a98df6fe9fce464d0665cc
 =======
     "note": "",
+    "rating": "",
     "isFavourite": "false"
 >>>>>>> a0c2543950d1f964337e501d3b72869eb9c2b8d8
   } ]
