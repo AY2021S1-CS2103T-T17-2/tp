@@ -217,11 +217,58 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
+### \[Implemented\] Review feature
+
+#### Current Implementation
+
+The review mechanism is implemented mainly via `MainWindow`. The review feature is a UI feature so `MainWindow` maintains the necessary UI state 
+and keeps track of whether the application is in review mode. Review mode is facilitated by `ReviewManager` which keeps track of the review state.
+It maintains the list of `Flashcard` and the `currentIndex` at which the user is at.
+
+It implements the following operations:
+* `ReviewManager#hasNextFlashcard` - determines if there are any more flashcards in the flashcard list after the flashcard specified by the `currentIndex`
+* `ReviewManager#hasPreviousFlashcard` - determines if there are any previous flashcards in the flashcard list before the flashcard specified by the `currentIndex`
+* `ReviewManager#getCurrentFlashcard` - returns flashcard at `currentIndex` in the flashcard list
+* `ReviewManager#getPreviousFlashcard` - decrements `currentIndex` by 1 and returns the associated flashcard
+* `ReviewManager#getNextFlashcard` - increments `currentIndex` by 1 and returns the associated flashcard
+
+Given below is an example of how the undo/redo mechanism behaves at each step:
+
+Step 1. The user launches the application.
+
+Step 2. The user executes `review` command. `MainWindow` will receive a `CommandResult` and calls `CommandResult#isReviewMode` which returns true. `MainWindow#handleReview` is then called to enter review mode.
+
+Step 3. In `MainWindow#handleReview`, the UI elements are altered, a listener is set up to listen for arrow key presses and a new `ReviewManager` is created to keep track of state.
+
+Step 4. Depending on the key presses, different operations of `ReviewManager` are called. The flashcard to render in the UI is determined by the various `ReviewManager` operations and the state as mentioned above.
+
+Step 5. If user presses `q` or runs out of flashcards to review, `MainWindow#exitReviewMode` is called which places the application back in normal command mode.
+
+The following sequence diagram gives an overview of how the application enters review mode:
+
+![ReviewSequenceDiagram](images/ReviewSequenceDiagram.png)
+
+The following activity diagram summarises the control path in review mode set up by `ReviewManager#handleReview`:
+
+![ReviewActivityDiagram](images/ReviewActivityDiagram.png)
+
+#### Design consideration:
+
+##### Aspect: How review mode executes
+
+* **Alternative 1 (current choice):** Handle review mode directly in UI.
+  * Pros: Truly interactive review where user can use key presses instead of typing commands.
+  * Cons: UI will have to implement some logic.
+
+* **Alternative 2:** Handle review mode through the command textbox.
+  * Pros: Allows for better abstraction through separation of UI and logic.
+  * Cons: Poorer user experience as reviewing will be slow since user has to type in command one by one.
+
 ### \[Proposed\] Sort feature
 
 #### Proposed Implementation
 
-The proposed sort mechanism is facilitated by `ModelManager`. It extends `Flashcard` with a review frequency and correctness percentage, stored internally as `reviewFrequency` and `successRate`, based on the review activity done by the user. When the user enters review mode, the user activity will be tracked and the data will be sent and stored inside the individual `Flashcard`. This activity will then be used to facilitate the sort mechanism. 
+The proposed sort mechanism is facilitated by `ModelManager`. `reviewFrequency` and `successRate` attributes is stored internally in `Flashcard`, to keep track of review frequency and correctness percentage respectively based on the review activity done by the user. When the user enters review mode, the user activity will be tracked and the data will be sent and stored inside the individual `Flashcard`. This activity will then be used to facilitate the sort mechanism. 
 
 It implements the following operations:
 * `ModelManager#updateSortedFlashcardList(Comparator <Flashcard>)` - sorts the flashcard list according to a given condition, and updates the flashcard list shown.
@@ -268,6 +315,65 @@ The following activity diagram summarizes what happens when a user executes a ne
 * **Alternative 2:** Using a data structure (e.g. HashMap) to store statistics.
   * Pros: Will use more memory, since the HashMap will have to be committed to local storage too.
   * Cons: We must ensure that the any changes/updates to a flashcard will be reflected in the HashMap.
+
+### Favourite/Unfavourite Feature 
+
+#### Implementation
+
+The favourite/unfavourite mechanism is faciliated by `LogicManager` and `ModelManager`.
+A `isFavourite` attribute is stored internally in `Flashcard`, to keep track of whether the flashcard is favourited. When the user favourites a flashcard, `isFavourite` is set to true, and set to false otherwise. 
+ 
+It implements the following operations:
+* `Flashcard#isFavourite()` - Checks whether the current flashcard is favourited
+* `FavCommand#createFavouriteFlashcard(Flashcard flashcardToFavourite)` - Duplicates the flashcard and set `isFavourite` attribute to `true`
+* `UnfavCommand#createUnfavouriteFlashcard(Flashcard flashcardToUnfavourite)` - Duplicates the flashcard and set `isFavourite` attribute to `false`.
+
+Given below is an example usage scenario and how the favourite/unfavourite mechanism behaves at each step.
+
+Step 1: The user launches the application 
+
+![FavUnfavState0](images/FavUnfavState0.png)
+
+Step 2: The user executes `fav 1` command to favourite the 1st flashcard in the displayed flashcard deck. `fav` Command calls 
+`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `f1`,  has been favourited. If the flashcard is not favourited, 
+`fav` Command calls `FavCommand#createFavouriteFlashcard(f1)` to create a new flashcard, `fav1`,  by duplicating the existing data fields and set the `isFavourite` attribute to `true`.
+`fav` Command then calls `ModelManager#setFlashcard(f1, fav1)` to replace the current flashcard, `f1`,  with the favourited flashcard, `fav1`.
+
+![FavUnfavState1](images/FavUnfavState1.png)
+
+The following sequence diagram shows how the `fav` operation works:
+
+![FavouriteSequenceDiagram](images/FavouriteSequenceDiagram.png)
+
+Step 3: The user executes `unfav 1` command to unfavourite the 1st flashcard in the displayed flashcard deck. `unfav` Command calls 
+`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `fav1`,  has been favourited. `fav1` is favourited in step 2, hence, 
+`unfav` Command calls `UnfavCommand#createUnfavouriteFlashcard(fav1)` to create a new flashcard, `f1`,  by duplicating the existing data fields and set the `isFavourite` attribute to `false`.
+`unfav` Command then calls `ModelManager#setFlashcard(fav1, f1)` to replace the current flashcard, `fav1`,  with the unfavourited flashcard, `f1`.
+
+![FavUnfavState2](images/FavUnfavState2.png)
+
+The following sequence diagram shows how the `unfav` operation works:
+
+![UnfavouriteSequenceDiagram](images/UnfavouriteSequenceDiagram.png)
+
+
+The following activity diagram summarizes what happens when a user executes a favourite/unfavourite command:
+
+![FavouriteUnfavouriteActivityDiagram.png](images/FavouriteUnfavouriteActivityDiagram.png)
+
+
+#### Design consideration:
+
+##### Aspect: How fav & unfav executes
+
+* **Alternative 1 (current choice):** Creates a new flashcard everytime `isFavourite` changes
+  * Pros: Flashcard remains immutable.
+  * Cons: Execution time is longer compared to Alternative 2 since a new flashcard is created if flashcard's state changes.
+
+* **Alternative 2:** Toggle `isFavourite` using a setter such as `setFavouriteStatus` in `Flashcard`.
+  * Pros: Easy to implement as there is no need to create a new flashcard every time the state is changed.
+  * Cons: Flashcard would not be immutable
+
 
 _{more aspects and alternatives to be added}_
 
