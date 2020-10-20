@@ -1,10 +1,10 @@
 package seedu.flashcard.model.flashcard;
 
-import seedu.flashcard.model.tag.Tag;
-
 import static seedu.flashcard.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.util.Objects;
+
+import seedu.flashcard.model.tag.Tag;
 
 /**
  * Represents a Flashcard in the flashcard list.

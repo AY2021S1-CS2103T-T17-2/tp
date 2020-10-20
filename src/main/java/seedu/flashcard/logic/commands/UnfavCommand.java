@@ -68,7 +68,7 @@ public class UnfavCommand extends Command {
         Note note = flashcardToUnfavourite.getNote();
         Rating rating = flashcardToUnfavourite.getRating();
         Tag tag = flashcardToUnfavourite.getTag();
-        return new Flashcard(question, answer, category, note, rating, tag,false);
+        return new Flashcard(question, answer, category, note, rating, tag, false);
     }
 
     @Override

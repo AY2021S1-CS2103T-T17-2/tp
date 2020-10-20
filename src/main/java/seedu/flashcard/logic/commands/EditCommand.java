@@ -1,7 +1,12 @@
 package seedu.flashcard.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.flashcard.logic.parser.CliSyntax.*;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_ANSWER;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_CATEGORY;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_NOTE;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_QUESTION;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_RATING;
+import static seedu.flashcard.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.flashcard.model.Model.PREDICATE_SHOW_ALL_FLASHCARDS;
 
 import java.util.List;
@@ -98,7 +103,7 @@ public class EditCommand extends Command {
         Tag updatedTag = editFlashcardDescriptor.getTag().orElse(flashcardToEdit.getTag());
         boolean isFavourite = flashcardToEdit.isFavourite();
         return new Flashcard(updatedQuestion, updatedAnswer, updatedCategory,
-                updatedNote, updatedRating, updatedTag,isFavourite);
+                updatedNote, updatedRating, updatedTag, isFavourite);
     }
 
     @Override

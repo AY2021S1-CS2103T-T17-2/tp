@@ -68,7 +68,7 @@ public class FavCommand extends Command {
         Note note = flashcardToFavourite.getNote();
         Rating rating = flashcardToFavourite.getRating();
         Tag tag = flashcardToFavourite.getTag();
-        return new Flashcard(question, answer, category, note, rating, tag,true);
+        return new Flashcard(question, answer, category, note, rating, tag, true);
     }
 
     @Override
