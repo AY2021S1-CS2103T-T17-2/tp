@@ -2,7 +2,14 @@ package seedu.flashcard.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.flashcard.logic.commands.CommandTestUtil.*;
+import static seedu.flashcard.logic.commands.CommandTestUtil.DESC_FLASHCARD_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.DESC_FLASHCARD_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_ANSWER_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_CATEGORY_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_NOTE_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_QUESTION_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_RATING_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_TAG_2;
 
 import org.junit.jupiter.api.Test;
 

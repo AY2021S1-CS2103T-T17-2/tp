@@ -25,7 +25,6 @@ import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_RATING_2_DESC
 import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_TAG_2;
 import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_TAG_2_DESC;
 import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_TAG_3_DESC;
-
 import static seedu.flashcard.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.flashcard.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.flashcard.testutil.TypicalIndexes.INDEX_FIRST_FLASHCARD;

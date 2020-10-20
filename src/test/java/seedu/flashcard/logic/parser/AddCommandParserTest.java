@@ -1,7 +1,18 @@
 package seedu.flashcard.logic.parser;
 
 import static seedu.flashcard.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.flashcard.logic.commands.CommandTestUtil.*;
+import static seedu.flashcard.logic.commands.CommandTestUtil.INVALID_ANSWER_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.INVALID_CATEGORY_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.INVALID_QUESTION_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.INVALID_RATING_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_ANSWER_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_ANSWER_3;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_CATEGORY_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_NOTE_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_QUESTION_1;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_QUESTION_3;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_RATING_2;
+import static seedu.flashcard.logic.commands.CommandTestUtil.VALID_TAG_2;
 import static seedu.flashcard.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.flashcard.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.flashcard.testutil.TypicalFlashcards.FLASHCARD_1;
@@ -36,7 +47,7 @@ public class AddCommandParserTest {
 
         // flashcard with input arguments in reversed order, with tag, category and note
         assertParseSuccess(parser, SPACE + PREFIX_ANSWER + VALID_ANSWER_1 + PREFIX_QUESTION + VALID_QUESTION_1
-                 + PREFIX_CATEGORY + VALID_CATEGORY_1 + PREFIX_TAG + VALID_TAG_2 +PREFIX_RATING + VALID_RATING_2
+                 + PREFIX_CATEGORY + VALID_CATEGORY_1 + PREFIX_TAG + VALID_TAG_2 + PREFIX_RATING + VALID_RATING_2
                         + PREFIX_NOTE + VALID_NOTE_1,
                 new AddCommand(FLASHCARD_1));
     }
