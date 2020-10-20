@@ -10,7 +10,7 @@ import static seedu.flashcard.commons.util.AppUtil.checkArgument;
 public class Tag {
 
     public static final String MESSAGE_CONSTRAINTS = "Tags names should be alphanumeric";
-    public static final String VALIDATION_REGEX = "\\p{Alnum}+";
+    public static final String VALIDATION_REGEX = "[^\\s].*";
 
     public final String tagName;
 
@@ -21,8 +21,16 @@ public class Tag {
      */
     public Tag(String tagName) {
         requireNonNull(tagName);
-        checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
+        // checkArgument(isValidTagName(tagName), MESSAGE_CONSTRAINTS);
         this.tagName = tagName;
+    }
+
+    /**
+     * Returns the tag string contained in tag.
+     * @return A tag in String format.
+     */
+    public String getTagName() {
+        return tagName;
     }
 
     /**

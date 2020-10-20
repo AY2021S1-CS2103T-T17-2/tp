@@ -3,6 +3,7 @@ package seedu.flashcard.storage;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import seedu.flashcard.commons.exceptions.IllegalValueException;
 import seedu.flashcard.model.flashcard.Answer;
 import seedu.flashcard.model.flashcard.Category;
@@ -10,6 +11,7 @@ import seedu.flashcard.model.flashcard.Flashcard;
 import seedu.flashcard.model.flashcard.Note;
 import seedu.flashcard.model.flashcard.Question;
 import seedu.flashcard.model.flashcard.Rating;
+import seedu.flashcard.model.tag.Tag;
 
 /**
  * Jackson-friendly version of {@link Flashcard}.
@@ -23,6 +25,7 @@ class JsonAdaptedFlashcard {
     private String category;
     private String note;
     private String rating;
+    private String tag;
     private String isFavourite;
 
     /**
@@ -31,17 +34,20 @@ class JsonAdaptedFlashcard {
     @JsonCreator
     public JsonAdaptedFlashcard(@JsonProperty("question") String question, @JsonProperty("answer") String answer,
                                 @JsonProperty("category") String category, @JsonProperty("note") String note,
-                                @JsonProperty("rating") String rating, @JsonProperty("favourite") String isFavourite) {
+                                @JsonProperty("rating") String rating, @JsonProperty("favourite") String isFavourite,
+                                @JsonProperty("tag") String tag) {
         this.question = question;
         this.answer = answer;
         this.category = category;
         this.note = note;
         this.rating = rating;
+        this.tag = tag;
         this.isFavourite = isFavourite;
     }
 
     /**
      * Converts a given {@code Flashcard} into this class for Jackson use.
+     * getTagName() method is used as toString()'s method format is [tag]
      */
     public JsonAdaptedFlashcard(Flashcard source) {
         question = source.getQuestion().toString();
@@ -49,6 +55,7 @@ class JsonAdaptedFlashcard {
         category = source.getCategory().toString();
         note = source.getNote().toString();
         rating = source.getRating().toString();
+        tag = source.getTag().getTagName();
         isFavourite = Boolean.toString(source.isFavourite());
     }
 
@@ -100,8 +107,18 @@ class JsonAdaptedFlashcard {
         }
         final Rating modelRating = new Rating(rating);
 
+        if (tag == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Tag.class.getSimpleName()));
+        }
+        if (!Tag.isValidTagName(tag)) {
+            throw new IllegalValueException(Tag.MESSAGE_CONSTRAINTS);
+        }
+        final Tag modelTag = new Tag(tag);
+
         final Boolean modelIsFavourite = Boolean.parseBoolean(isFavourite);
-        return new Flashcard(modelQuestion, modelAnswer, modelCategory, modelNote, modelRating, modelIsFavourite);
+        return new Flashcard(modelQuestion, modelAnswer, modelCategory, modelNote, modelRating,
+                modelTag, modelIsFavourite);
     }
 
 }
