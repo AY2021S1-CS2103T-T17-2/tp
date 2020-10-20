@@ -24,7 +24,7 @@ public class SampleDataUtil {
                 new Category("SDLC"), new Note(""), new Rating(""), new Tag("")),
             new Flashcard(new Question("What is a revision control software?"),
                 new Answer("It is the software tool that automate the process of Revision Control"),
-                new Category("Revision history"), new Note(""), new Rating("2"), new Tag(""))
+                new Category("Revision history"), new Note(""), new Rating("2"), new Tag("preloaded"))
         };
     }
 

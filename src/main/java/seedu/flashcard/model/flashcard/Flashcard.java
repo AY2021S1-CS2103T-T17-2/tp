@@ -151,7 +151,7 @@ public class Flashcard {
             builder.append(" Rating: ")
                     .append(getRating());
         }
-        if (getTag().toString().length() > 0) {
+        if (getTag().getTagName().length() > 0) {
             builder.append(" Tag: ")
                     .append(getTag());
         }

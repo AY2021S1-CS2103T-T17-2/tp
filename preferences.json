@@ -3,8 +3,8 @@
     "windowWidth" : 833.0,
     "windowHeight" : 600.0,
     "windowCoordinates" : {
-      "x" : 514,
-      "y" : 216
+      "x" : 456,
+      "y" : 84
     }
   },
   "flashcardDeckFilePath" : "data/flashcarddeck.json"
