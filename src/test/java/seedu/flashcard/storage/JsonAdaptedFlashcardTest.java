@@ -22,7 +22,7 @@ public class JsonAdaptedFlashcardTest {
     private static final String VALID_CATEGORY = FLASHCARD_1.getCategory().toString();
     private static final String VALID_NOTE = FLASHCARD_1.getNote().toString();
     private static final String VALID_RATING = FLASHCARD_1.getRating().toString();
-    private static final String VALID_TAG = FLASHCARD_1.getTag().toString();
+    private static final String VALID_TAG = FLASHCARD_1.getTag().getTagName();
     private static final String VALID_FAVOURITE_STATUS = Boolean.toString(FLASHCARD_1.isFavourite());
 
     @Test

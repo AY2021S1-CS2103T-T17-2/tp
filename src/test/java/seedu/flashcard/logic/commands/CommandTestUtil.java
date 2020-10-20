@@ -54,7 +54,7 @@ public class CommandTestUtil {
 
     public static final String VALID_TAG_1 = "";
     public static final String VALID_TAG_2 = "revise";
-
+    public static final String VALID_TAG_3 = "important";
     public static final String INVALID_QUESTION_1 = " ";
     public static final String INVALID_ANSWER_1 = " ";
     public static final String INVALID_CATEGORY_1 = "%";
@@ -66,6 +66,7 @@ public class CommandTestUtil {
     public static final String VALID_RATING_2_DESC = " " + PREFIX_RATING + VALID_RATING_2;
     public static final String VALID_NOTE_2_DESC = " " + PREFIX_NOTE + VALID_NOTE_2;
     public static final String VALID_TAG_2_DESC = " " + PREFIX_TAG + VALID_TAG_2;
+    public static final String VALID_TAG_3_DESC = " " + PREFIX_TAG + VALID_TAG_3;
     public static final String VALID_QUESTION_4_DESC = " " + PREFIX_QUESTION + VALID_QUESTION_4;
     public static final String VALID_ANSWER_4_DESC = " " + PREFIX_ANSWER + VALID_ANSWER_4;
     public static final String VALID_CATEGORY_4_DESC = " " + PREFIX_CATEGORY + VALID_CATEGORY_4;
