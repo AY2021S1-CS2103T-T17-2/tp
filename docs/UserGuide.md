@@ -28,7 +28,7 @@ SWEe! is a  **desktop app for CS2103T students to manage their learning progress
         - [Saving the data](#saving-the-data)
     - FAQ
     - [Command summary](#command-summary)
-        
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -46,31 +46,31 @@ SWEe! is a  **desktop app for CS2103T students to manage their learning progress
    * **`add q/What does OOP stand for? a/Object Oriented Programming c/General`** : Adds a flashcard with a question and answer into the General category.
 
    * **`delete 3`**: Deletes the 3rd flashcard in the current list.
-   
+
    * **`edit 2 q/What is a revision control software? a/It is the software tool that automate the process of Revision Control`**: Edits the 2nd flashcard in the current list with the specified attributes.
 
-   * **`filter c/OOP`** : Filters out flashcard(s) belonging to the OOP category. 
-   
+   * **`filter c/OOP`** : Filters out flashcard(s) belonging to the OOP category.
+
    * **`fav 1`** : Favourites the 1st flashcard in the current list.
-     
+
    * **`unfav 1`** : Unfavourites the 1st flashcard in the current list.
-   
+ 
    * **`find general`**: Finds all flashcards containing general.
 
    * **`list`** : Lists all flashcards.
 
    * **`review`** : Reviews the current list of flashcards.
-   
+
    * **`quiz`** : Quizzes the current list of flashcards.
-   
+ 
    * **`sort reviewed -d`** : Sorts the list of flashcards according to review frequency in descending order.
-   
+ 
    * **`view 1`** : Views the 1st flashcard in the current list.
-   
+
    * **`stats 1`** : Views the statistics of the 1st flashcard in the current list.
 
    * **`exit`** : Exits the app.
-  
+
 
 1. Refer to the [Features](#features) below for details of each command.
 
@@ -85,25 +85,25 @@ SWEe! is a  **desktop app for CS2103T students to manage their learning progress
 * Words in UPPER_CASE are the parameters to be supplied by the user.<br>
   e.g. in add `q/QUESTION`, `QUESTION` is a parameter which can be used as `add q/`What is my name?
 
-* Words in lower_case are to be specified exactly. e.g. in `sort <success|reviewed>`, `success` and `reviewed` 
+* Words in lower_case are to be specified exactly. e.g. in `sort <success|reviewed>`, `success` and `reviewed`
 must be specified exactly.
 
 * Items in square brackets are optional (zero or one instance).<br>
   e.g `q/QUESTION [c/CATEGORY]` can be used as `q/What is my name?` or as `q/What is my name? c/topic 1`
-  * Note: Multiple instances of the same prefix will not throw an error. 
-  However, the app will only read the last instance in the input. 
-  * e.g `add q/Are apples red? a/Yes c/fruit c/test` will add a flashcard belonging to "test" category 
-  
+  * Note: Multiple instances of the same prefix will not throw an error.
+  However, the app will only read the last instance in the input.
+  * e.g `add q/Are apples red? a/Yes c/fruit c/test` will add a flashcard belonging to "test" category
+
 * Items in square brackets with trailing ellipsis are optional (zero, one or multiple instances).<br>
   e.g. `q/QUESTION [t/TAG]...` can be used as `q/What is my name?`, `q/What is my name? t/topic1` or
-  `q/What is my name? t/topic1 t/fun` 
+  `q/What is my name? t/topic1 t/fun`
   * Note: Multiple instances of the tag prefix is accepted, and the app will read every instance
   in the input.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `q/QUESTION a/ANSWER, a/ANSWER q/QUESTION` is also acceptable.
-  
-* Items in angle brackets `<>` are either/or options. Each option is delineated by a `|` . 
+
+* Items in angle brackets `<>` are either/or options. Each option is delineated by a `|` .
   e.g `<success|reviewed>` can be used as `success` or `reviewed` but not both.
 
 </div>
@@ -115,7 +115,7 @@ Adds a flashcard.
 Format: `add q/QUESTION a/ANSWER [c/CATEGORY] [r/RATING] [n/NOTE] [d/DIAGRAM] [t/TAG]...`
 
 * `RATING` must be a number between 1 and 5 inclusive.
-* `CATEGORY` must be alphanumeric and have a maximum of 50 characters. 
+* `CATEGORY` must be alphanumeric and have a maximum of 50 characters.
      It can consist of multiple words but there should only be 1 space between words.
 * `DIAGRAM` can be defined by a valid relative or absolute path and only supports file path without spaces in it. Unintended behaviour may occur if file path with spaces is used. eg. `d/image s/diagram.png`
 * `DIAGRAM` only supports the following image file types.
@@ -139,7 +139,7 @@ Examples:
 
 **Steps for adding a flashcard with diagram**:
 
-**Step 1**: Locate the relative file path of the image file. In this example, our file path is `images/classDiagramExample1.png` 
+**Step 1**: Locate the relative file path of the image file. In this example, our file path is `images/classDiagramExample1.png`
 
 Root folder containing the jar file        |  Image directory
 :-------------------------:|:-------------------------:
@@ -153,7 +153,7 @@ Root folder containing the jar file        |  Image directory
 
 ![filedirectory](images/ug/ug_add_step3.png)
 
-### Clear all flashcards : `clear` 
+### Clear all flashcards : `clear`
 
 Clears all flashcard data from the program.
 
@@ -184,7 +184,7 @@ Format: `edit INDEX [q/QUESTION] [a/ANSWER] [c/CATEGORY] [n/NOTE] [r/RATING] [d/
 * The index **must be a positive integer greater than 0**. eg. 1, 2, 3, …
 * Although all fields are optional, a minimum of one field has to be given.
 * Specifying empty values to note, rating, tag or diagram eg. `r/` will remove the corresponding field in the flashcard.
-* Although question, answer and category are optional values, you are not allowed to specify an empty value to those attributes 
+* Although question, answer and category are optional values, you are not allowed to specify an empty value to those attributes
 once the prefix is declared e.g. `c/` is not allowed and will not remove category.
 
 Examples:
@@ -208,7 +208,7 @@ Examples:
 
 ### Filter for flashcards  : `filter`
 
-Filters for specific flashcard(s) based on the field input(s) by the user. 
+Filters for specific flashcard(s) based on the field input(s) by the user.
 This will return all the flashcards whose fields match all the fields specified by the user.
 
 Format: `filter [c/CATEGORY] [r/RATING] [f/<yes|no>] [t/TAG]...`
@@ -244,7 +244,7 @@ Format: `fav INDEX`
 * The index refers to the index number shown in the displayed flashcard list.
 * The index **must be a positive integer greater than 0**. eg. 1, 2, 3, …
 
-Examples: 
+Examples:
 * `list` followed by `fav 2` favourite the 2nd flashcard in the displayed list.
 
 ### Unfavourite a flashcard  : `unfav`
@@ -257,7 +257,7 @@ Format: `unfav INDEX`
 * The index refers to the index number shown in the displayed flashcard list.
 * The index **must be a positive integer greater than 0**. eg. 1, 2, 3, …
 
-Examples: 
+Examples:
 * `list` followed by `unfav 2` unfavourite the 2nd flashcard in the displayed list.
 
 ### Find flashcards : `find`
@@ -269,9 +269,9 @@ Format: `find KEYWORD [KEYWORD]...`
 * The keywords are **case insensitive**
 * Keywords will match as long as they are contained within any flashcard’s question/answer/category/note/tags. Eg. `UML` keyword will match a flashcard with a `category` called `UML-Diagram`
 
-Examples: 
-* `find general` 
-* `find general important` 
+Examples:
+* `find general`
+* `find general important`
 * `find GENERAL object`
 
 ### View help : `help`
@@ -290,12 +290,12 @@ Format: `list`
 
 ### Review flashcards: `review`
 
-Reviews the current list of flashcards. This puts the user in review mode and the user can no 
+Reviews the current list of flashcards. This puts the user in review mode and the user can no
 longer input commands to the textbox.
 
 Upon entering review mode, the following user input will be recognised:
-* `↓ key` shows answer and notes of the current flashcard  
-* `↑ key` hides answer and notes of the current flashcard  
+* `↓ key` shows answer and notes of the current flashcard
+* `↑ key` hides answer and notes of the current flashcard
 * `→ key` moves on to the next flashcard (if there is a next flashcard)
 * `← key` moves to the previous flashcard (if there is a previous flashcard)
 * `q` quits review mode
@@ -326,13 +326,13 @@ The review and success frequency of a flashcard is not affected by review mode.
 Quizzes the current list of flashcards. This puts the user in quiz mode and the user can no longer input commands to the textbox.
 
 Upon entering quiz mode, the following user input will be recognised:
-* `↓ key` shows answer and notes of the current flashcard  
+* `↓ key` shows answer and notes of the current flashcard
 * `q` quits quiz mode
-* `y` This input will only be recognised after the `↓ key` is pressed. `y` is a feedback to indicate a correct answer. 
-* `n` This input will only be recognised after the `↓ key` is pressed. `n` is a feedback to indicate an incorrect answer. 
+* `y` This input will only be recognised after the `↓ key` is pressed. `y` is a feedback to indicate a correct answer.
+* `n` This input will only be recognised after the `↓ key` is pressed. `n` is a feedback to indicate an incorrect answer.
 
-Upon pressing the `↓ key`, the user will be prompted if they got the answer correct. The user can then press 
-`y` to feedback that they got the correct answer or `n` to feedback that they got an incorrect answer.  
+Upon pressing the `↓ key`, the user will be prompted if they got the answer correct. The user can then press
+`y` to feedback that they got the correct answer or `n` to feedback that they got an incorrect answer.
 
 The quiz mode works in conjunction with the [statistics](#view-the-statistics-of-flashcard-stats) feature. Quiz attempts are recorded and information about the success frequency can be displayed using the [statistics](#view-the-statistics-of-flashcard-stats) feature.
 * Pressing `y` will increase the review and success frequency of the flashcard.
@@ -369,7 +369,7 @@ Sorts all flashcards according to the criteria given.
 
 Format: `sort <success|reviewed> <-a|-d>`
 
-Examples: 
+Examples:
 * `sort reviewed -a` shows a list of all flashcards sorted according to review frequency in ascending order
 * `sort reviewed -d` shows a list of all flashcards sorted according to review frequency in descending order
 * `sort success -a` shows a list of all flashcards sorted according to success rate in ascending order
@@ -377,7 +377,7 @@ Examples:
 
 <div markdown="span" class="alert alert-primary">:memo: Note: The review and success frequencies of a flashcard are only affected by quiz mode.
 </div>
-    
+
 ### View a flashcard  : `view`
 
 Views the specified flashcard. A "snapshot" of the flashcard is taken and displayed in the view pane to the user.
@@ -430,7 +430,7 @@ The following information will be displayed on the view pane:
 * Correct count of the flashcard.
 * Pie chart to show the graphical representation of correct attempts vs wrong attempts in quiz mode of the flashcard.
 
-<div markdown="span" class="alert alert-primary">:memo: Note: No pie chart will be shown if the flashcard has not been reviewed.    
+<div markdown="span" class="alert alert-primary">:memo: Note: No pie chart will be shown if the flashcard has not been reviewed.
 </div>
 <br>
 <div markdown="span" class="alert alert-primary">:memo: Note: Once another command is executed, the view pane containing the statistics will be returned to a blank state even if the shown

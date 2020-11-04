@@ -235,7 +235,7 @@ Question and answer are mandatory inputs while the rest are optional inputs. Whe
 inputs will be passed on to `ParserUtil`. `ParserUtil` will conduct input validation and trim any leading and trailing
 whitespaces. If the user’s inputs are valid and there are no duplicate flashcard, a `Flashcard` object will be created
 and added to the `FlashcardDeck`. Otherwise `ParseException` will be thrown and the relevant error message will be
-displayed to the user. 
+displayed to the user.
 
 It implements the following operations:
 * `AddCommand#execute()` - Add the flashcard to the `ModelManager` and `FlashcardDeck`
@@ -250,7 +250,7 @@ The following sequence diagram shows how the `add` operation works:
 
 #### Current Implementation
 
-The review mechanism is implemented mainly via `MainWindow`. The review feature is a UI feature so `MainWindow` maintains the necessary UI state 
+The review mechanism is implemented mainly via `MainWindow`. The review feature is a UI feature so `MainWindow` maintains the necessary UI state
 and keeps track of whether the application is in review mode. Review mode is facilitated by `ReviewManager` which keeps track of the review state.
 It maintains the list of `Flashcard` and the `currentIndex` at which the user is at.
 
@@ -337,13 +337,13 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use more memory, since the HashMap will have to be committed to local storage too.
   * Cons: We must ensure that the any changes/updates to a flashcard will be reflected in the HashMap.
 
-### \[Implemented\] Favourite/Unfavourite feature 
+### \[Implemented\] Favourite/Unfavourite feature
 
 #### Current Implementation
 
 The favourite/unfavourite mechanism is faciliated by `LogicManager` and `ModelManager`.
-A `isFavourite` attribute is stored internally in `Flashcard`, to keep track of whether the flashcard is favourited. When the user favourites a flashcard, `isFavourite` is set to true, and set to false otherwise. 
- 
+A `isFavourite` attribute is stored internally in `Flashcard`, to keep track of whether the flashcard is favourited. When the user favourites a flashcard, `isFavourite` is set to true, and set to false otherwise.
+
 It implements the following operations:
 * `Flashcard#isFavourite()` - Checks whether the current flashcard is favourited
 * `FavCommand#createFavouriteFlashcard(Flashcard flashcardToFavourite)` - Duplicates the flashcard and set `isFavourite` attribute to `true`
@@ -351,12 +351,12 @@ It implements the following operations:
 
 Given below is an example usage scenario and how the favourite/unfavourite mechanism behaves at each step.
 
-Step 1: The user launches the application 
+Step 1: The user launches the application
 
 ![FavUnfavState0](images/FavUnfavState0.png)
 
-Step 2: The user executes `fav 1` command to favourite the 1st flashcard in the displayed flashcard deck. `fav` Command calls 
-`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `f1`,  has been favourited. If the flashcard is not favourited, 
+Step 2: The user executes `fav 1` command to favourite the 1st flashcard in the displayed flashcard deck. `fav` Command calls
+`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `f1`,  has been favourited. If the flashcard is not favourited,
 `fav` Command calls `FavCommand#createFavouriteFlashcard(f1)` to create a new flashcard, `fav1`,  by duplicating the existing data fields and set the `isFavourite` attribute to `true`.
 `fav` Command then calls `ModelManager#setFlashcard(f1, fav1)` to replace the current flashcard, `f1`,  with the favourited flashcard, `fav1`.
 
@@ -366,8 +366,8 @@ The following sequence diagram shows how the `fav` operation works:
 
 ![FavouriteSequenceDiagram](images/FavouriteSequenceDiagram.png)
 
-Step 3: The user executes `unfav 1` command to unfavourite the 1st flashcard in the displayed flashcard deck. `unfav` Command calls 
-`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `fav1`,  has been favourited. `fav1` is favourited in step 2, hence, 
+Step 3: The user executes `unfav 1` command to unfavourite the 1st flashcard in the displayed flashcard deck. `unfav` Command calls
+`Flashcard#isFavourite()` method to check whether the flashcard at index 1, `fav1`,  has been favourited. `fav1` is favourited in step 2, hence,
 `unfav` Command calls `UnfavCommand#createUnfavouriteFlashcard(fav1)` to create a new flashcard, `f1`,  by duplicating the existing data fields and set the `isFavourite` attribute to `false`.
 `unfav` Command then calls `ModelManager#setFlashcard(fav1, f1)` to replace the current flashcard, `fav1`,  with the unfavourited flashcard, `f1`.
 
@@ -403,15 +403,15 @@ _{more aspects and alternatives to be added}_
 #### Current Implementation
 The filtering mechanism is facilitated by `LogicManager` and `ModelManager`.
 It works when the `LogicManager` listens for a filter command input from the user and
-parses the command to filter out relevant flashcards based on the category or categories 
+parses the command to filter out relevant flashcards based on the category or categories
 chosen. The filter feature supports filtering of multiple categories by parsing the command
 using `ParserUtil.parseCategories(Collection<String> categories)`.
 
 It implements the following operations:
 * `FilterCommand#execute(Model model)` to update `Model` to show only the filtered flashcards
-* `CategoryEqualsKeywordsPredicate#test(Flashcard flashcard)` to check every flashcard in `Model` against the list of 
+* `CategoryEqualsKeywordsPredicate#test(Flashcard flashcard)` to check every flashcard in `Model` against the list of
 categories parsed from `FilterCommandParser#parse(String args)`
-* `ModelManager#updateFilteredFlashcardList(Predicate<Flashcard> predicate)` takes in a predicate to update 
+* `ModelManager#updateFilteredFlashcardList(Predicate<Flashcard> predicate)` takes in a predicate to update
 `filteredFlashcards` attribute within  `ModelManager`.
 
 Given below is an example usage scenario and how the filter mechanism behaves at each step.
@@ -419,12 +419,12 @@ Given below is an example usage scenario and how the filter mechanism behaves at
 Step 1. The user launches the application.
 
 Step 2: The user executes `filter c/SDLC` command to filter and display all the flashcards in the flashcard deck
-belonging to SDLC category. `LogicManager` calls   `FlashcardDeckParser#parseCommand(String args))` and   
+belonging to SDLC category. `LogicManager` calls   `FlashcardDeckParser#parseCommand(String args))` and
 `FilterCommandParser#parse(String args)` to ultimately return a `FilterCommand` object.
 
 Step 3: After parsing, `LogicManager` then calls `FilterCommand#execute(Model model)`.
 
-Step 4: `FilterCommand` then updates the list of filtered flashcards by calling 
+Step 4: `FilterCommand` then updates the list of filtered flashcards by calling
 `Model#updateFilteredFlashcardList(predicate)`.
 
 Step 5: A `CommandResult` is generated and Model updates the `filteredFlashcardList` which is then updated
@@ -433,12 +433,12 @@ in the UI.
 The following sequence diagram shows how the filter operation works:
 
  ![FilterSequenceDiagram](images/FilterSequenceDiagram.png)
- 
+
  The following activity diagram shows how the `filter` command works when a user executes it:
- 
+
  ![FilterActivityDiagram](images/FilterActivityDiagram.png)
- 
- 
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
