@@ -33,7 +33,7 @@ Given below are my contributions to the project.
 * Add implementation details for `sort` command (including activity and sequence diagrams) [#99](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/99)
 
 **Contributions to team-based tasks**:
-* Set up DG with target user profile, value proposition, user stories, use case, non-functional 
+* Set up DG with target user profile, value proposition, user stories, use case, non-functional
 * Rename and morph Person in AB3 to Flashcard
 * Maintain issue tracker
 

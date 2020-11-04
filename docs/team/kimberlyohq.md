@@ -22,9 +22,9 @@ Given below are my contributions to the project.
     5. Added the ability to find flashcards using keywords
         * What it does: Allows the user to find flashcards using keywords via the `find` command
         * Justification: This feature improves the product significantly in terms of efficiency as it allows users to find flashcards easily.
-        * Highlights: This enhancement affected the existing implementation of `find` command in AB3. This is because the `find` searches for the keywords in the entire flashcard, which includes `Flashcard`'s `Question`, `Answer`, `Category`, `Tags` and `Note` 
+        * Highlights: This enhancement affected the existing implementation of `find` command in AB3. This is because the `find` searches for the keywords in the entire flashcard, which includes `Flashcard`'s `Question`, `Answer`, `Category`, `Tags` and `Note`
                       as compared to the previous implementation which only looks at `Person#Name`. Since the flashcard can contain special characters, the implementation also includes handling of special characters while searching for matching keywords in flashcard
-                      
+
 
 * **Contributions to User Guide:**:
     * Added documentation for `find` command [#100](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/100)
@@ -47,4 +47,3 @@ Given below are my contributions to the project.
 * **Review/Mentoring Contributions**:
 
 * **Contributions beyond project team**:
-

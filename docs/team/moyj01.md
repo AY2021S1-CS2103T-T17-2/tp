@@ -10,7 +10,7 @@ SWEe! is a desktop application used for managing CS2103T learning progress mainl
 Given below are my contributions to the project.
 
 * **New Feature**:
-* **Code contributed**: 
+* **Code contributed**:
 
 * **Project management**:
 
