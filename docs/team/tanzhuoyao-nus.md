@@ -16,22 +16,40 @@ Given below are my contributions to the project.
   [#29](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/29)
   * Refactor ListCommand and ListCommandTest classes to list out all the flashcards 
   [#39](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/39)
-  * Add FilterCommand to allow for user to filter out flashcards based on category
-  [#41](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/41/files)
+  * Add FilterCommand to filter for flashcards
+  [#41](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/41/files) & 
+  [#97](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/97/files)
+    * What it does: Allows the user to filter for flashcards according to category, rating and/or favourites status
+    * Justification: This allows the user to toggle through the flashcard deck to display flashcards of specific
+    requirements to aid navigability and ease for revision during quiz mode
+    * Highlights: I have implemented the "and search" function to allow users to specify more than one filter attribute
+    specification
   * Add test cases for FilterCommand under FilterCommandTest 
   [#45](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/45)
-  * Refactor FindCommand and FindCommandTest classes to support finding of flashcards
+  * Refactor FindCommand and FindCommandTest classes to support finding of flashcards 
   [#57](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/57/files)
   * Add tag feature in flashcards to support up to multiple tags on a flashcard
   [#88](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/88)
-  * Update FilterCommand to now support filtering of flashcards through their category, rating, favourite status 
-  and tags [#97](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/97/files)
   * Refactor LogicManagerTest, FilterCommandTest, FlashcardDeckParserTest, 
   ModelManagerTest to ensure remaining test cases fully support the application 
   [#110](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/110)
 
-* **Documentation**:
+* **Contributions to DG**:
+  * Added implementation for `filter` feature along with activity and sequence diagrams
+  * Minor fixes to formatting of DG
 
-* **Community**:
+* **Contributions to UG**:
+  * Added documentation to `filter` feature
+  * Minor fixes to formatting of UG
 
-* **Tools**:
+* **Contributions to team-based tasks:**:
+  * Maintaining the issue-tracker
+    
+**Review/mentoring contributions**:
+  * Reported bugs to other teams: [Issue Tracker](https://github.com/tanzhuoyao-nus/ped/issues) 
+  * PRs reviewed: [#53](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/53), 
+  [#101](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/101),
+  [#105](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/105),
+  [#106](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/106),
+  [#109](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/109),
+  [#164](https://github.com/AY2021S1-CS2103T-T17-2/tp/pull/164)
